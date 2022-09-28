@@ -32,4 +32,8 @@ public class ItemFacade {
     public ItemInfo.Main retrieveItemInfo(String itemToken) {
         return itemService.retrieveItemInfo(itemToken);
     }
+
+    public ItemInfo.ItemListInfo retrieveItemList() {
+        return itemService.retrieveItemList();
+    }
 }

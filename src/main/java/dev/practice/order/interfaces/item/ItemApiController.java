@@ -11,6 +11,7 @@ import javax.validation.Valid;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin
 @RequestMapping("/api/v1/items")
 public class ItemApiController {
     private final ItemFacade itemFacade;
@@ -43,6 +44,13 @@ public class ItemApiController {
     public CommonResponse retrieve(@PathVariable("itemToken") String itemToken) {
         var itemInfo = itemFacade.retrieveItemInfo(itemToken);
         var response = itemDtoMapper.of(itemInfo);
+        return CommonResponse.success(response);
+    }
+
+    @GetMapping("/itemList")
+    public CommonResponse getItemList() {
+        var itemList = itemFacade.retrieveItemList();
+        var response = itemDtoMapper.of(itemList);
         return CommonResponse.success(response);
     }
 }

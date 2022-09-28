@@ -31,6 +31,16 @@ public class ItemInfo {
 
     @Getter
     @ToString
+    public static class ItemListInfo{
+        private final List<Item> itemList;
+        public ItemListInfo(List<Item> itemList){
+            this.itemList = itemList;
+        }
+
+    }
+
+    @Getter
+    @ToString
     public static class ItemOptionGroupInfo {
         private final Integer ordering;
         private final String itemOptionGroupName;

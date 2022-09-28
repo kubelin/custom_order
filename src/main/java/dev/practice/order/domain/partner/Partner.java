@@ -36,7 +36,9 @@ public class Partner extends AbstractEntity {
     public enum Status {
         ENABLE("활성화"), DISABLE("비활성화");
         private final String description;
+
     }
+
 
     @Builder
     public Partner(String partnerName, String businessNo, String email) {

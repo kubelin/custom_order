@@ -36,4 +36,10 @@ public class ItemReaderImpl implements ItemReader {
                     return new ItemInfo.ItemOptionGroupInfo(itemOptionGroup, itemOptionInfoList);
                 }).collect(Collectors.toList());
     }
+
+    @Override
+    public List<Item> getItemList() {
+        System.out.println("ItemReaderImpl 호출");
+        return itemRepository.findAll();
+    }
 }

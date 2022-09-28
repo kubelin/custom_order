@@ -1,3 +1,4 @@
+
 -- partner
 create table partners
 (
@@ -204,3 +205,4 @@ index order_item_options_idx02 on order_item_options (created_at);
 
 create
 index order_item_options_idx03 on order_item_options (updated_at);
+

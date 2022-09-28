@@ -67,6 +67,13 @@ public class ItemDto {
     @Getter
     @Builder
     @ToString
+    public static class ItemList{
+        private final List<Item> itemList;
+    }
+
+    @Getter
+    @Builder
+    @ToString
     public static class ItemOptionGroupInfo {
         private final Integer ordering;
         private final String itemOptionGroupName;
@@ -81,4 +88,5 @@ public class ItemDto {
         private final String itemOptionName;
         private final Long itemOptionPrice;
     }
+
 }

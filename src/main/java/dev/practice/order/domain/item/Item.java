@@ -1,10 +1,12 @@
 package dev.practice.order.domain.item;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.google.common.collect.Lists;
 import dev.practice.order.common.exception.InvalidParamException;
 import dev.practice.order.common.util.TokenGenerator;
 import dev.practice.order.domain.AbstractEntity;
 import dev.practice.order.domain.item.optiongroup.ItemOptionGroup;
+import dev.practice.order.domain.order.Order;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +31,9 @@ public class Item extends AbstractEntity {
     private String itemName;
     private Long itemPrice;
 
+//    private List<Item> itemList = new Lists();
+
+    @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "item", cascade = CascadeType.PERSIST)
     private List<ItemOptionGroup> itemOptionGroupList = Lists.newArrayList();
 
@@ -68,5 +73,18 @@ public class Item extends AbstractEntity {
 
     public boolean availableSales() {
         return this.status == Status.ON_SALE;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", itemToken='" + itemToken + '\'' +
+                ", partnerId=" + partnerId +
+                ", itemName='" + itemName + '\'' +
+                ", itemPrice=" + itemPrice +
+                ", itemOptionGroupList=" + itemOptionGroupList +
+                ", status=" + status +
+                '}';
     }
 }

@@ -11,7 +11,10 @@ public class PayAmountValidator implements PaymentValidator {
 
     @Override
     public void validate(Order order, OrderCommand.PaymentRequest paymentRequest) {
-        if (!order.calculateTotalAmount().equals(paymentRequest.getAmount()))
-            throw new InvalidParamException("주문가격이 불일치합니다");
+        if (!order.calculateTotalAmount().equals(paymentRequest.getAmount())){
+            System.out.println(order.calculateTotalAmount());
+            throw new InvalidParamException(order.calculateTotalAmount() + " 주문가격이 불일치합니다");
+        }
+
     }
 }

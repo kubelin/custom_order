@@ -25,6 +25,8 @@ public interface ItemDtoMapper {
     // retrieve
     ItemDto.Main of(ItemInfo.Main main);
 
+    ItemDto.ItemList of(ItemInfo.ItemListInfo itemListInfo);
+
     ItemDto.ItemOptionGroupInfo of(ItemInfo.ItemOptionGroupInfo itemOptionGroup);
 
     ItemDto.ItemOptionInfo of(ItemInfo.ItemOptionInfo itemOption);

@@ -46,4 +46,16 @@ public class ItemServiceImpl implements ItemService {
         var itemOptionGroupInfoList = itemReader.getItemOptionSeries(item);
         return new ItemInfo.Main(item, itemOptionGroupInfoList);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public ItemInfo.ItemListInfo retrieveItemList() {
+        var itemList = itemReader.getItemList();
+        System.out.println("호출  retrive itemList " + itemList.size());
+        itemList.stream().forEach(System.out::println);
+
+        System.out.println(itemList.toString());
+
+        return new ItemInfo.ItemListInfo(itemList);
+    }
 }

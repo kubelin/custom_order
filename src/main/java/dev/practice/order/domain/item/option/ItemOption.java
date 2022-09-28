@@ -1,6 +1,7 @@
 package dev.practice.order.domain.item.option;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import dev.practice.order.common.exception.InvalidParamException;
 import dev.practice.order.domain.AbstractEntity;
 import dev.practice.order.domain.item.optiongroup.ItemOptionGroup;
@@ -23,6 +24,7 @@ public class ItemOption extends AbstractEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "item_option_group_id")
     private ItemOptionGroup itemOptionGroup;

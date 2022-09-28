@@ -11,6 +11,8 @@ public class NotificationExecutor implements NotificationService {
     @Override
     public void sendEmail(String email, String title, String description) {
         log.info("sendEmail");
+        System.out.println("Call sendEmail from NotificationServiceImpl");
+        System.out.println("ReceiveData : " + email + " " + title + " " + description);
     }
 
     @Override
